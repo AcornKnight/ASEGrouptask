@@ -1,0 +1,94 @@
+<?php
+
+// read a json file
+$text=file_get_contents('posts.json');
+//echo $text;
+
+echo '<pre>';
+print_r(json_decode($text, true));
+//var_dump(json_decode($text, true));
+//json_decode($text);
+
+// converts a json file into an array
+$json_array=json_decode($text,true));
+print_r($json_array);
+
+echo '<hr />';
+/*/echo '$json_array[0]['body']';
+unset($json_array[0]['body']);
+unset($json_array[1]['title']);
+print_r($json_array);
+
+*/
+
+
+$body = 'some new body';
+$json_array[0]['body']='N/A';
+$json_array[0]['body']=$body;
+$json_array[0]['Author']='The Author';
+
+print_r($json_array);
+
+// for an index array over a key array
+$json_array[]=[
+	'usrid'=> 2,
+	'id'=> 4,
+	'title'=>'Thursday is my favorite day',
+	'body'=>'',
+	];
+print_r($json_array);
+
+// you could put them in a for loop to make mutliple items
+
+
+// now we have read, altered a file, now lets save items. Use json encode to convert the json file back into a string file
+file_put_contents('posts.json',json_encode($json_array));
+// as these are hard to read, its useful to format json files to be easier to read
+file_put_contents('posts.json', json_encode($json_array,JSON_PRETTY_PRINT));
+
+
+?>
+
+<?php
+$admin='admin';
+$pass='12345';
+$found=false;
+// opening csv files
+// file get contents opens the file and reads it, fopen just checks if a file is readable.
+$handles=fopen('students.csv','r');
+// uses a while loop to read a file line by line without knowing how long the file is
+while(!feof($handles)){
+	$line=fgets($handles);
+	$line=explode(';',$line);
+	print_r($line);
+	echo '<hr />';
+
+	if($line[1]==$admin && $line[2]==$pass){
+		echo 'user is found';
+		$found=true;
+		break;
+		/*/ not as efficient
+		if($line[2]==$pass){
+			echo 'password accepted.';
+			break;
+		else {
+			echo 'invalid password.';
+		}*/
+
+if($found) echo 'username and password are correct';
+else echo 'no username or password';
+}
+fclose($handles)
+
+// opens a file in write mode and lets us start writing it at the start of the file. completely overwrites the file
+
+$handle=fopen('students.csv','w');
+fwrite($handle,'4;somebody@nku.edu;12345657676');
+fclose($handle);
+
+//opens a file in append mode so we can add to a file without overwriting it
+
+$handle=fopen('students.csv','a');
+fwrite($handle,'4;somebody@nku.edu;12345657676').'\n';
+fclose($handle);
+?>

@@ -1,0 +1,73 @@
+<?php
+$temp=70;
+$day ='tuesday';
+
+if($temp == 'monday' && $temp>50) {SE
+	echo 'we offer 20% off today';
+	}
+	
+switch($day) {
+	case 'monday':
+		echo 'free pizza in the department.';
+		break;
+		
+		
+$dog=[
+	'taco'=>[
+		'weight'=>24,
+		'gender'=>'male',
+		'age'=>3,
+		'pictures'=>[
+			'taco_o1.jpg',
+			'taco_02.jpg,
+			]
+		],
+	'puma'=>[
+		'weight'=>44,
+		'gender'=>'male'
+		],
+	'spot'=>[
+		'weight'=>44,
+		'gender'=>'male',
+		],
+	];
+	
+	or
+	
+$dog=[
+	[
+		'name'=>'Taco';
+		'weight'=>24,
+		'gender'=>'male',
+		'age'=>3,
+		'pictures'=>[
+			'taco_o1.jpg',
+			'taco_02.jpg,
+			]
+		],
+ecgo '<pre>';
+print_r($dogs);
+var_dump($dogs);
+echo $dogs['taco']['gender'][0];
+echo '</pre>';
+
+for($i=0;$i<count($dogs),$i++){
+	
+	echo '<h1>'.$dogs[$i]['name'].'</h1>';
+	echo '<p>'.$dogs[$i]['gender'].'</p>';
+	}
+	
+foreach($dogs as $dog) {
+	echo '<h1>'.$dog['name'].'</h1>';
+	echo '<p>'.$dog['gender'].'</p>';
+}
+
+foreach($dogs as $dog){
+	?>
+	<h1><?= $dog['name'] ?></h1>
+	<p><?= $dog['gender'] ?></p>
+	<?php
+	
+	
+for($i=0;$i<count($dogs);$i++){
+	
